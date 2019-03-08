@@ -357,7 +357,7 @@
                 
               
 
-              <time title="Created: 2019-03-08 15:58:18 / Modified: 16:01:53" itemprop="dateCreated datePublished" datetime="2019-03-08T15:58:18+08:00">2019-03-08</time>
+              <time title="Created: 2019-03-08 15:58:18 / Modified: 16:05:46" itemprop="dateCreated datePublished" datetime="2019-03-08T15:58:18+08:00">2019-03-08</time>
             
 
             
@@ -403,15 +403,15 @@
 <h3 id="如何解决的简述"><a href="#如何解决的简述" class="headerlink" title="如何解决的简述"></a>如何解决的简述</h3><p>DataGrip就是可以按照上述第二种方式来给出所需要SQL的一个工具。</p>
 <h3 id="如何解决的详细描述"><a href="#如何解决的详细描述" class="headerlink" title="如何解决的详细描述"></a>如何解决的详细描述</h3><p><strong>1 修改需要的数据</strong></p>
 <blockquote>
-<p>首选查询出，需要修改的数据，然后直接在table上修改，双击即可编辑，编辑过后的数据有蓝色背景标识。<br><img src="/Users/shen/Library/Mobile%20Documents/com~apple~CloudDocs/vscode/Macos/&amp;&amp;&amp;SFLOCALFILEPATH&amp;&amp;&amp;D1208778-EF73-4F4C-856C-FC5B8C2F7525.png" alt></p>
+<p>首选查询出，需要修改的数据，然后直接在table上修改，双击即可编辑，编辑过后的数据有蓝色背景标识。<br><img src="http://wx1.sinaimg.cn/large/6c251c0dly1g0vg68yd72j20cu06aweo.jpg" alt></p>
 </blockquote>
 <p><strong>2 更改复制模式</strong></p>
 <blockquote>
-<p>默认复制模式，只是复制当前数据，在Database Console 窗口的右侧，可以看到修改复制模式的位置“红色标记”，选择SQL Updates 即可。<br><img src="/Users/shen/Library/Mobile%20Documents/com~apple~CloudDocs/vscode/Macos/&amp;&amp;&amp;SFLOCALFILEPATH&amp;&amp;&amp;0932FB84-CDAB-4933-A138-3B03DF1D908C.png" alt></p>
+<p>默认复制模式，只是复制当前数据，在Database Console 窗口的右侧，可以看到修改复制模式的位置“红色标记”，选择SQL Updates 即可。<br><img src="http://wx4.sinaimg.cn/large/6c251c0dly1g0vg68doboj215s0emwh3.jpg" alt></p>
 </blockquote>
 <p><strong>3 复制一定要两列起</strong></p>
 <blockquote>
-<p>单独一个字段的复制，系统会默认复制当前字段的值，只有两个字段一起复制，才可以按照“复制模式”来复制出需要的数据，比如这次我修改的是字段“auto_repayment”但复制的是还需要增加随便一列，我选择的是“all_rate”<br><img src="/Users/shen/Library/Mobile%20Documents/com~apple~CloudDocs/vscode/Macos/&amp;&amp;&amp;SFLOCALFILEPATH&amp;&amp;&amp;92453F2A-7034-4D1B-A2E7-5B01CFF45E06.png" alt></p>
+<p>单独一个字段的复制，系统会默认复制当前字段的值，只有两个字段一起复制，才可以按照“复制模式”来复制出需要的数据，比如这次我修改的是字段“auto_repayment”但复制的是还需要增加随便一列，我选择的是“all_rate”<br><img src="http://wx2.sinaimg.cn/large/6c251c0dly1g0vg67xl2vj20qa08e0uf.jpg" alt></p>
 </blockquote>
 <p><strong>结果</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UPDATE p2p.p2p_p2pproduct SET all_rate = 14.4, auto_repayment = 2 WHERE id = 1369;</span><br><span class="line">UPDATE p2p.p2p_p2pproduct SET all_rate = 14.4, auto_repayment = 3 WHERE id = 1380;</span><br></pre></td></tr></table></figure>
