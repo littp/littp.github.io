@@ -312,6 +312,165 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://litp.cn/2019/03/08/DataGrip如何提取SQL-update-语句/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="沈弋">
+      <meta itemprop="description" content="沈弋的记录">
+      <meta itemprop="image" content="http://wx3.sinaimg.cn/large/6c251c0dly1fs6ld9mz4aj21e01e0b2d.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shen's">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/08/DataGrip如何提取SQL-update-语句/" class="post-title-link" itemprop="url">DataGrip 如何提取SQL语句</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-08 15:58:18 / Modified: 16:01:53" itemprop="dateCreated datePublished" datetime="2019-03-08T15:58:18+08:00">2019-03-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><em>需要解决的问题</em><br>在遇到需要修改线上数据的时候，有两种方式生成sql，第一种就是根据提供的需求来手动写SQL，审查，然后在测试环境跑一边确认无误，可以直接扔给运维去执行。<br>第二种方法就是直接在图形化工具上修改，然后提取修改的SQL，这样提取的只要核对一遍数据的修改是否正确即可扔给运维执行。</p>
+<p>很明显第二种可以很方便、很准确的提取出所需要的SQL。</p>
+<h3 id="如何解决的简述"><a href="#如何解决的简述" class="headerlink" title="如何解决的简述"></a>如何解决的简述</h3><p>DataGrip就是可以按照上述第二种方式来给出所需要SQL的一个工具。</p>
+<h3 id="如何解决的详细描述"><a href="#如何解决的详细描述" class="headerlink" title="如何解决的详细描述"></a>如何解决的详细描述</h3><p><strong>1 修改需要的数据</strong></p>
+<blockquote>
+<p>首选查询出，需要修改的数据，然后直接在table上修改，双击即可编辑，编辑过后的数据有蓝色背景标识。<br><img src="/Users/shen/Library/Mobile%20Documents/com~apple~CloudDocs/vscode/Macos/&amp;&amp;&amp;SFLOCALFILEPATH&amp;&amp;&amp;D1208778-EF73-4F4C-856C-FC5B8C2F7525.png" alt></p>
+</blockquote>
+<p><strong>2 更改复制模式</strong></p>
+<blockquote>
+<p>默认复制模式，只是复制当前数据，在Database Console 窗口的右侧，可以看到修改复制模式的位置“红色标记”，选择SQL Updates 即可。<br><img src="/Users/shen/Library/Mobile%20Documents/com~apple~CloudDocs/vscode/Macos/&amp;&amp;&amp;SFLOCALFILEPATH&amp;&amp;&amp;0932FB84-CDAB-4933-A138-3B03DF1D908C.png" alt></p>
+</blockquote>
+<p><strong>3 复制一定要两列起</strong></p>
+<blockquote>
+<p>单独一个字段的复制，系统会默认复制当前字段的值，只有两个字段一起复制，才可以按照“复制模式”来复制出需要的数据，比如这次我修改的是字段“auto_repayment”但复制的是还需要增加随便一列，我选择的是“all_rate”<br><img src="/Users/shen/Library/Mobile%20Documents/com~apple~CloudDocs/vscode/Macos/&amp;&amp;&amp;SFLOCALFILEPATH&amp;&amp;&amp;92453F2A-7034-4D1B-A2E7-5B01CFF45E06.png" alt></p>
+</blockquote>
+<p><strong>结果</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UPDATE p2p.p2p_p2pproduct SET all_rate = 14.4, auto_repayment = 2 WHERE id = 1369;</span><br><span class="line">UPDATE p2p.p2p_p2pproduct SET all_rate = 14.4, auto_repayment = 3 WHERE id = 1380;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://litp.cn/2019/03/08/pyenv常用命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1012,7 +1171,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1039,7 +1198,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
