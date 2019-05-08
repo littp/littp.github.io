@@ -374,7 +374,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-08 17:16:51" itemprop="dateModified" datetime="2019-05-08T17:16:51+08:00">2019-05-08</time>
+                <time title="Modified: 2019-05-08 17:19:17" itemprop="dateModified" datetime="2019-05-08T17:19:17+08:00">2019-05-08</time>
               
             
           </span>
@@ -412,7 +412,7 @@
           
             <h1 id="CentOS安装VPN（L2TP、Openvpn、SSR）"><a href="#CentOS安装VPN（L2TP、Openvpn、SSR）" class="headerlink" title="CentOS安装VPN（L2TP、Openvpn、SSR）"></a>CentOS安装VPN（L2TP、Openvpn、SSR）</h1><h3 id="CentOS-安装-L2TP"><a href="#CentOS-安装-L2TP" class="headerlink" title="CentOS 安装 L2TP"></a>CentOS 安装 L2TP</h3><h4 id="尝试过的安装方法："><a href="#尝试过的安装方法：" class="headerlink" title="尝试过的安装方法："></a>尝试过的安装方法：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/hwdsl2/setup-ipsec-vpn</span><br><span class="line">https://www.cnblogs.com/sfissw/articles/7085678.html</span><br></pre></td></tr></table></figure>
 <h4 id="出现的问题"><a href="#出现的问题" class="headerlink" title="出现的问题"></a>出现的问题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">状态均正常，但始终是无响应无法连接。</span><br></pre></td></tr></table></figure>
-<h4 id="总结结论："><a href="#总结结论：" class="headerlink" title="总结结论："></a>总结结论：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">电脑端（电信企业宽带）无法连接，尝试过win7、macOS、iPhone(连接WiFi)</span><br><span class="line"></span><br><span class="line">手机端（联通4G）可以正常连接</span><br></pre></td></tr></table></figure>
+<h4 id="总结结论："><a href="#总结结论：" class="headerlink" title="总结结论："></a>总结结论：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">电脑端（电信企业宽带）无法连接，尝试过win7、macOS、iPhone(连接WiFi)</span><br><span class="line">手机端（联通4G）可以正常连接</span><br></pre></td></tr></table></figure>
 <h4 id="以上问题的发现是在这个Issues"><a href="#以上问题的发现是在这个Issues" class="headerlink" title="以上问题的发现是在这个Issues"></a>以上问题的发现是在这个Issues</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/hwdsl2/setup-ipsec-vpn/issues/244</span><br></pre></td></tr></table></figure>
 <h4 id="L2TP到此为止，还是去试试ssr吧！"><a href="#L2TP到此为止，还是去试试ssr吧！" class="headerlink" title="L2TP到此为止，还是去试试ssr吧！"></a>L2TP到此为止，还是去试试ssr吧！</h4><hr>
 <h3 id="CentOS-安装-SSR"><a href="#CentOS-安装-SSR" class="headerlink" title="CentOS 安装 SSR"></a>CentOS 安装 SSR</h3><p>安装、配置、连接 一切顺利</p>
@@ -421,9 +421,9 @@
 <h3 id="CentOS-安装-OpenVPN"><a href="#CentOS-安装-OpenVPN" class="headerlink" title="CentOS 安装 OpenVPN"></a>CentOS 安装 OpenVPN</h3><p>想着自己的脑子还可以，就按照教程一步一步的来</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">（基础）https://www.jianshu.com/p/4bbf946222d5</span><br><span class="line">（补充）https://www.jianshu.com/p/0ed2a7e8258d</span><br></pre></td></tr></table></figure>
 <p>可是没想到败给了自己，不知道是教程的问题，还是自己配置有问题，适中无法访问，启动了openvpn之后也看不到1194端口的监听</p>
-<h5 id="最后依赖于轮子了"><a href="#最后依赖于轮子了" class="headerlink" title="最后依赖于轮子了"></a>最后依赖于轮子了</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/Nyr/openvpn-install</span><br></pre></td></tr></table></figure>
-<p>⬆ 真的好用，一键配置，访问正常！</p>
-<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">macOS ：https://tunnelblick.net/index.html</span><br><span class="line">windows：https://openvpn.net/community-downloads/</span><br></pre></td></tr></table></figure>
+<h5 id="最后依赖于轮子了"><a href="#最后依赖于轮子了" class="headerlink" title="最后依赖于轮子了"></a>最后依赖于轮子了</h5><p>⬇ 真的好用，一键配置，访问正常！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/Nyr/openvpn-install</span><br></pre></td></tr></table></figure>
+<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">macOS ：https://tunnelblick.net/index.html</span><br><span class="line">windows：https://openvpn.net/community-downloads/</span><br></pre></td></tr></table></figure>
 
           
         
