@@ -527,7 +527,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-10 15:44:01" itemprop="dateModified" datetime="2019-05-10T15:44:01+08:00">2019-05-10</time>
+                <time title="Modified: 2019-06-03 10:53:43" itemprop="dateModified" datetime="2019-06-03T10:53:43+08:00">2019-06-03</time>
               
             
           </span>
@@ -574,8 +574,9 @@
 <h3 id="CentOS-安装-OpenVPN"><a href="#CentOS-安装-OpenVPN" class="headerlink" title="CentOS 安装 OpenVPN"></a>CentOS 安装 OpenVPN</h3><p>想着自己的脑子还可以，就按照教程一步一步的来</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">（基础）https://www.jianshu.com/p/4bbf946222d5</span><br><span class="line">（补充）https://www.jianshu.com/p/0ed2a7e8258d</span><br></pre></td></tr></table></figure>
 <p>可是没想到败给了自己，不知道是教程的问题，还是自己配置有问题，始终无法访问，启动了openvpn之后也看不到1194端口的监听</p>
-<h5 id="最后依赖于轮子了"><a href="#最后依赖于轮子了" class="headerlink" title="最后依赖于轮子了"></a>最后依赖于轮子了</h5><p>⬇ 真的好用，一键配置，访问正常！</p>
+<h4 id="最后依赖于轮子了"><a href="#最后依赖于轮子了" class="headerlink" title="最后依赖于轮子了"></a>最后依赖于轮子了</h4><p>⬇ 真的好用，一键配置，访问正常！</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/Nyr/openvpn-install</span><br></pre></td></tr></table></figure>
+<h5 id="添加多个用户"><a href="#添加多个用户" class="headerlink" title="添加多个用户"></a>添加多个用户</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Run the script and follow the assistant:</span><br><span class="line"></span><br><span class="line">wget https://git.io/vpn -O openvpn-install.sh &amp;&amp; bash openvpn-install.sh</span><br><span class="line"></span><br><span class="line">Once it ends, you can run it again to add more users, remove some of them or even completely uninstall OpenVPN.</span><br><span class="line"></span><br><span class="line">⬆️翻译：</span><br><span class="line">因为openvpn每一个配置文件允许一个用户访问，如果想要新增一个用户，那么就再执行一下这个命令即可。</span><br></pre></td></tr></table></figure>
 <h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">macOS ：https://tunnelblick.net/index.html</span><br><span class="line">windows：https://openvpn.net/community-downloads/</span><br></pre></td></tr></table></figure>
 
           
