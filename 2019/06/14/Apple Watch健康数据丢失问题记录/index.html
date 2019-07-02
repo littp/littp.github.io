@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="2p7ESSrNjl30Gv4seKL7zkrMxshD4k44CiSX_QL1KuI">
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="问题描述：我抹掉了手机，重新刷机之后从iCloud同步数据下来，然后我的健康数据，从2018年10月份之后的全部丢书，遂找客服解决问题。 目前情况：截止 2019-06-14 苹果客服的回复依然是，数据无法找回，并且不知道丢失原因，同时因为不知道丢失原因所以拒绝我的申请赔偿（我申请了10年的iCloud付费赔偿，我是6元款，10年一共700多块。） 按照时间线梳理下我的问题以下包含了每一次问题的案">
+<meta name="keywords" content="苹果,iCloud">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Apple Watch健康数据丢失问题记录">
+<meta property="og:url" content="http://litp.cn/2019/06/14/Apple Watch健康数据丢失问题记录/index.html">
+<meta property="og:site_name" content="Shen&#39;s">
+<meta property="og:description" content="问题描述：我抹掉了手机，重新刷机之后从iCloud同步数据下来，然后我的健康数据，从2018年10月份之后的全部丢书，遂找客服解决问题。 目前情况：截止 2019-06-14 苹果客服的回复依然是，数据无法找回，并且不知道丢失原因，同时因为不知道丢失原因所以拒绝我的申请赔偿（我申请了10年的iCloud付费赔偿，我是6元款，10年一共700多块。） 按照时间线梳理下我的问题以下包含了每一次问题的案">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-24T02:02:50.215Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Apple Watch健康数据丢失问题记录">
+<meta name="twitter:description" content="问题描述：我抹掉了手机，重新刷机之后从iCloud同步数据下来，然后我的健康数据，从2018年10月份之后的全部丢书，遂找客服解决问题。 目前情况：截止 2019-06-14 苹果客服的回复依然是，数据无法找回，并且不知道丢失原因，同时因为不知道丢失原因所以拒绝我的申请赔偿（我申请了10年的iCloud付费赔偿，我是6元款，10年一共700多块。） 按照时间线梳理下我的问题以下包含了每一次问题的案">
+
+
+
+
+
+
+  <link rel="canonical" href="http://litp.cn/2019/06/14/Apple Watch健康数据丢失问题记录/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Apple Watch健康数据丢失问题记录 | Shen's</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shen's</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-首页">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-标签">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-归档">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://litp.cn/2019/06/14/Apple Watch健康数据丢失问题记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="沈弋">
+      <meta itemprop="description" content="沈弋的记录">
+      <meta itemprop="image" content="https://pet-liaison-station.oss-cn-shanghai.aliyuncs.com/markdown/IMG_5857.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shen's">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Apple Watch健康数据丢失问题记录
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-14 19:12:10" itemprop="dateCreated datePublished" datetime="2019-06-14T19:12:10+08:00">2019-06-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-24 10:02:50" itemprop="dateModified" datetime="2019-06-24T10:02:50+08:00">2019-06-24</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h4><p>我抹掉了手机，重新刷机之后从iCloud同步数据下来，然后我的健康数据，从2018年10月份之后的全部丢书，遂找客服解决问题。</p>
+<h4 id="目前情况："><a href="#目前情况：" class="headerlink" title="目前情况："></a>目前情况：</h4><p>截止 2019-06-14 苹果客服的回复依然是，数据无法找回，并且不知道丢失原因，同时因为不知道丢失原因所以拒绝我的申请赔偿（我申请了10年的iCloud付费赔偿，我是6元款，10年一共700多块。）</p>
+<p>按照时间线梳理下我的问题<br>以下包含了每一次问题的案例ID，都可追述。</p>
+<h4 id="2018年"><a href="#2018年" class="headerlink" title="2018年"></a>2018年</h4><p>具体忘了几月份，我买了新的Apple Watch，然后更换新的Apple Watch之后，我的健身记录、奖章等相关信息全部丢失，后来询问客服的得知，要么itunes加密备份，要么开iCloud 。但是当时没有开iCloud ，所以后来一直开着iCloud。谨记着这件事儿。</p>
+<h4 id="2019年3月12日"><a href="#2019年3月12日" class="headerlink" title="2019年3月12日"></a>2019年3月12日</h4><p>突然想起来之前更换Apple Watch的时候丢失数据的问题，所以和苹果客服确认iCloud是否会同步我的健康数据。<br>案例 ID： 100778850732，以下是部分对话截图<br>“<br>Luka<br>因为这边我查看到的信息表示只要watch配对iPhone后，并且同步相关的信息，在iPhone通过 iCloud备份后，是可以进行备份相关奖章的信息。</p>
+<p>弋 沈<br>哪里有写 麻烦发给我</p>
+<p>弋 沈<br>因为我在你们的使用说明没有看到！</p>
+<p>Luka<br>这是我与我们的高级技术顾问进行沟通后的出来的结论哦。<br>”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这里明确写明了iCloud备份包含Apple Watch数据（https://support.apple.com/zh-cn/HT204518）</span><br><span class="line">以上以此依据，我就在4.12做了手机数据抹除的操作，准备从iCloud恢复。</span><br></pre></td></tr></table></figure>
+<h4 id="问题发生在2019年4月12日"><a href="#问题发生在2019年4月12日" class="headerlink" title="问题发生在2019年4月12日"></a>问题发生在2019年4月12日</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">（后悔的一件事就是没有使用itunes本地备份一下）</span><br></pre></td></tr></table></figure>
+<p>4.12 的时候我觉得最近手机卡的不行，就打算把手机完全抹掉数据恢复试试，然后我就这样做了。<br>并且我为了保证iCloud云端正常，我在抹掉数据之前，手动点击了一下iCloud云备份。</p>
+<p>恢复之后，我查看我的“健康记录APP”显示正在从iCloud同步数据，我就在等，真的担心数据丢失</p>
+<p>果不其然，我的数据丢失了，数据只显示了2018年10月份之前的数据，11月份到2019年4月份的数据全部消失不见。</p>
+<p>尽快的时间打苹果客服咨询问题，从此开始踏上了长长的解释问题之路。</p>
+<p>解释的主要问题在于“iCloud同步”和“iCloud备份”这是两个事情，但是苹果客服一直不理解。</p>
+<p>案例ID：20000045608958</p>
+<p>从4月12日一直拖到了4月25日才有准确的回复，说我的手机没问题，还说他们多次和工程部核实，都说iCloud不包含Apple Watch隐私数据，然后我就问（<a href="https://support.apple.com/zh-cn/HT204518）这里的怎么解释，然而客服还是会说，iCloud不包含Apple" target="_blank" rel="noopener">https://support.apple.com/zh-cn/HT204518）这里的怎么解释，然而客服还是会说，iCloud不包含Apple</a> Watch的隐私数据是工程部回复的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">我又继续那我的数据丢失原因能找到么？</span><br><span class="line">客服回复：因为备份不包含隐私数据，所以没有是正常的。</span><br><span class="line">我：那么我的数据为何2018年10月份之前的有？</span><br><span class="line">客服回复：那这个我还需要和工程部核实。</span><br><span class="line">就这样没完没了的讲这个问题，我就一怒之下投诉到了12315</span><br><span class="line">北京的12315电话是96315，很奇葩是吧？</span><br></pre></td></tr></table></figure>
+<p>投诉完了之后，就有新的行政人来跟进这个问题</p>
+<p>简单说</p>
+<h4 id="5月初行政人员给我联系了一个工程部的人跟我要日志log，然后收集数据之后等待。"><a href="#5月初行政人员给我联系了一个工程部的人跟我要日志log，然后收集数据之后等待。" class="headerlink" title="5月初行政人员给我联系了一个工程部的人跟我要日志log，然后收集数据之后等待。"></a>5月初行政人员给我联系了一个工程部的人跟我要日志log，然后收集数据之后等待。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5月底我咨询还有没有消息，给我回复说备份不包含Apple Watch敏感信息，我很头大？？？？</span><br><span class="line">我说：iCloud备份没有可以理解，那么我说的是iCloud同步？</span><br><span class="line">行政：说了一堆没用的</span><br><span class="line">我说：我要重试一下我之前抹除操作，如果我从iCloud恢复回来，有最新的4 5 6 月份的数据，那就证明iCloud包含隐私数据，那么我之前丢失的数据，就是iCloud有问题。</span><br><span class="line">行政：好</span><br></pre></td></tr></table></figure>
+<h4 id="然后我在6月4日，全程录像，做了4月12日相同的操作。"><a href="#然后我在6月4日，全程录像，做了4月12日相同的操作。" class="headerlink" title="然后我在6月4日，全程录像，做了4月12日相同的操作。"></a>然后我在6月4日，全程录像，做了4月12日相同的操作。</h4><p>结果，我的iCloud数据完整恢复回来了，并且包含我4月12日之后一直到6月4日当天。也就意味iCloud是包含我的Apple Watch健康数据的，证明我4月12日的操作没问题，那么我4月12日之前到2018年10月份的数据为何丢失？<br>￼</p>
+<p>行政给我的回复是这样的：我们会派工程师再和您询问。<br>然后这次的工程师终于明白我说的iCloud备份和iCloud问题。并且和我说会回去给我查找原因。</p>
+<h4 id="6月11日-行政回电"><a href="#6月11日-行政回电" class="headerlink" title="6月11日 行政回电"></a>6月11日 行政回电</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">你的数据缺失丢失了，但是由于我们工程部采集你手机数据是在5月份，并不知道你4月份的手机情况，工程部只能查询到5月份的手机没问题，并不能知道4月份你的手机问题。</span><br><span class="line">我：wtf？？那我4月份的时候咨询客服为什么不给我找工程师要日志？</span><br><span class="line">行政：这方面我会找客服相关负责人沟通，以便确定问题</span><br><span class="line">我：那我这次的抹除之后，恢复下来的数据是包含2019年4月12日当天的，也就证明从这一刻开始我的iCloud数据通不正常，应该是在我抹除数据之前手机的同步一直都不正常，那么我要是不做这个操作，我的数据就永远都没有从不到iCloud？而且iCloud 并没有地方可以看到我的健康数据同步到了什么时间。依次我无法确认我的iCloud是否正常同步，只抹掉数据之后，看看能不能恢复，如果能恢复就证明我的数据正常，如果不能恢复就证明我的设备有问题？？</span><br><span class="line">行政：很抱歉 因为采集日志已经在5月份，所以我们没办法知道你4月份手机的情况</span><br><span class="line">我：那我4月份之前的数据丢失是我的责任么？</span><br><span class="line">行政：因为我们不知道你手机4月份是什么情况，所以我们没办法查询是谁的责任。</span><br><span class="line">我：无语。。。那我就申请赔偿吧。10年的iCloud自动续费</span><br><span class="line">行政：那你得给个标准，你是多少钱的用户需要什么档次的。</span><br><span class="line">我：就我现在的就行，6元每月。</span><br><span class="line">行政：好的，我这边和相关部门申请，给你回电。</span><br></pre></td></tr></table></figure>
+<h4 id="6月14日-行政回电"><a href="#6月14日-行政回电" class="headerlink" title="6月14日 行政回电"></a>6月14日 行政回电</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">行政：很抱歉我们这边没办法给您补偿，因为我们无法定责给工程部。</span><br><span class="line">我：那我的数据丢失了就没有说法了？</span><br><span class="line">行政：这个问题我们上一次已经说过了，同事为了您的体验，我们决定送您一款Apple Watch的表带或者iPhone手机壳。</span><br><span class="line">我：我决绝</span><br><span class="line">行政：那就很抱歉了，我们没有其他办法。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">其实我的问题很简单，我抹掉数据之后从iCloud恢复，但是我的数据没有恢复成功，那么为什么？</span><br><span class="line"></span><br><span class="line">就告诉我为什么就好了啊，这次沟通怎么这样费劲。</span><br></pre></td></tr></table></figure>
+<h4 id="以上问题只是用于记录，我也不知道还有那些好的方法可以解决我的问题"><a href="#以上问题只是用于记录，我也不知道还有那些好的方法可以解决我的问题" class="headerlink" title="以上问题只是用于记录，我也不知道还有那些好的方法可以解决我的问题"></a>以上问题只是用于记录，我也不知道还有那些好的方法可以解决我的问题</h4><h4 id="1、iCloud看不到数据同步的时间节点，我无法看到我的健康数据是否同步成功以及同步到那一天"><a href="#1、iCloud看不到数据同步的时间节点，我无法看到我的健康数据是否同步成功以及同步到那一天" class="headerlink" title="1、iCloud看不到数据同步的时间节点，我无法看到我的健康数据是否同步成功以及同步到那一天"></a>1、iCloud看不到数据同步的时间节点，我无法看到我的健康数据是否同步成功以及同步到那一天</h4><h4 id="2、问题1的情况存在于iCloud的任何一项，因为哪一项都是没有最后同步时间显示的"><a href="#2、问题1的情况存在于iCloud的任何一项，因为哪一项都是没有最后同步时间显示的" class="headerlink" title="2、问题1的情况存在于iCloud的任何一项，因为哪一项都是没有最后同步时间显示的"></a>2、问题1的情况存在于iCloud的任何一项，因为哪一项都是没有最后同步时间显示的</h4><h4 id="3、任何对于手机有刷机风险的操作一定要做itunes的加密备份，并且一定要记住密码，这个密码是无法找回的。"><a href="#3、任何对于手机有刷机风险的操作一定要做itunes的加密备份，并且一定要记住密码，这个密码是无法找回的。" class="headerlink" title="3、任何对于手机有刷机风险的操作一定要做itunes的加密备份，并且一定要记住密码，这个密码是无法找回的。"></a>3、任何对于手机有刷机风险的操作一定要做itunes的加密备份，并且一定要记住密码，这个密码是无法找回的。</h4><h4 id="4、我的问题估计也就到现在这样了，也真的很无语。备份一定要做。切记"><a href="#4、我的问题估计也就到现在这样了，也真的很无语。备份一定要做。切记" class="headerlink" title="4、我的问题估计也就到现在这样了，也真的很无语。备份一定要做。切记"></a>4、我的问题估计也就到现在这样了，也真的很无语。备份一定要做。切记</h4>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/苹果/" rel="tag"># 苹果</a>
+          
+            <a href="/tags/iCloud/" rel="tag"># iCloud</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/12/个人云盘说说自己的看法/" rel="next" title="个人云盘说说自己的看法">
+                <i class="fa fa-chevron-left"></i> 个人云盘说说自己的看法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://pet-liaison-station.oss-cn-shanghai.aliyuncs.com/markdown/IMG_5857.jpeg" alt="沈弋">
+            
+              <p class="site-author-name" itemprop="name">沈弋</p>
+              <p class="site-description motion-element" itemprop="description">沈弋的记录</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/littp" title="GitHub &rarr; https://github.com/littp" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/x5688" title="Weibo &rarr; https://weibo.com/x5688" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题描述："><span class="nav-number">1.</span> <span class="nav-text">问题描述：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#目前情况："><span class="nav-number">2.</span> <span class="nav-text">目前情况：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2018年"><span class="nav-number">3.</span> <span class="nav-text">2018年</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2019年3月12日"><span class="nav-number">4.</span> <span class="nav-text">2019年3月12日</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题发生在2019年4月12日"><span class="nav-number">5.</span> <span class="nav-text">问题发生在2019年4月12日</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5月初行政人员给我联系了一个工程部的人跟我要日志log，然后收集数据之后等待。"><span class="nav-number">6.</span> <span class="nav-text">5月初行政人员给我联系了一个工程部的人跟我要日志log，然后收集数据之后等待。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#然后我在6月4日，全程录像，做了4月12日相同的操作。"><span class="nav-number">7.</span> <span class="nav-text">然后我在6月4日，全程录像，做了4月12日相同的操作。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6月11日-行政回电"><span class="nav-number">8.</span> <span class="nav-text">6月11日 行政回电</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6月14日-行政回电"><span class="nav-number">9.</span> <span class="nav-text">6月14日 行政回电</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#以上问题只是用于记录，我也不知道还有那些好的方法可以解决我的问题"><span class="nav-number">10.</span> <span class="nav-text">以上问题只是用于记录，我也不知道还有那些好的方法可以解决我的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1、iCloud看不到数据同步的时间节点，我无法看到我的健康数据是否同步成功以及同步到那一天"><span class="nav-number">11.</span> <span class="nav-text">1、iCloud看不到数据同步的时间节点，我无法看到我的健康数据是否同步成功以及同步到那一天</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、问题1的情况存在于iCloud的任何一项，因为哪一项都是没有最后同步时间显示的"><span class="nav-number">12.</span> <span class="nav-text">2、问题1的情况存在于iCloud的任何一项，因为哪一项都是没有最后同步时间显示的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、任何对于手机有刷机风险的操作一定要做itunes的加密备份，并且一定要记住密码，这个密码是无法找回的。"><span class="nav-number">13.</span> <span class="nav-text">3、任何对于手机有刷机风险的操作一定要做itunes的加密备份，并且一定要记住密码，这个密码是无法找回的。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、我的问题估计也就到现在这样了，也真的很无语。备份一定要做。切记"><span class="nav-number">14.</span> <span class="nav-text">4、我的问题估计也就到现在这样了，也真的很无语。备份一定要做。切记</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">沈弋</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

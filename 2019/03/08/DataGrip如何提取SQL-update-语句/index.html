@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="2p7ESSrNjl30Gv4seKL7zkrMxshD4k44CiSX_QL1KuI">
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="需要解决的问题在遇到需要修改线上数据的时候，有两种方式生成sql，第一种就是根据提供的需求来手动写SQL，审查，然后在测试环境跑一边确认无误，可以直接扔给运维去执行。第二种方法就是直接在图形化工具上修改，然后提取修改的SQL，这样提取的只要核对一遍数据的修改是否正确即可扔给运维执行。 很明显第二种可以很方便、很准确的提取出所需要的SQL。 如何解决的简述DataGrip就是可以按照上述第二种方式来">
+<meta name="keywords" content="macOS,dataGrip,mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DataGrip 如何提取SQL语句">
+<meta property="og:url" content="http://litp.cn/2019/03/08/DataGrip如何提取SQL-update-语句/index.html">
+<meta property="og:site_name" content="Shen&#39;s">
+<meta property="og:description" content="需要解决的问题在遇到需要修改线上数据的时候，有两种方式生成sql，第一种就是根据提供的需求来手动写SQL，审查，然后在测试环境跑一边确认无误，可以直接扔给运维去执行。第二种方法就是直接在图形化工具上修改，然后提取修改的SQL，这样提取的只要核对一遍数据的修改是否正确即可扔给运维执行。 很明显第二种可以很方便、很准确的提取出所需要的SQL。 如何解决的简述DataGrip就是可以按照上述第二种方式来">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://wx1.sinaimg.cn/large/6c251c0dly1g0vg68yd72j20cu06aweo.jpg">
+<meta property="og:image" content="http://wx4.sinaimg.cn/large/6c251c0dly1g0vg68doboj215s0emwh3.jpg">
+<meta property="og:image" content="http://wx2.sinaimg.cn/large/6c251c0dly1g0vg67xl2vj20qa08e0uf.jpg">
+<meta property="og:updated_time" content="2019-03-08T08:05:46.507Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DataGrip 如何提取SQL语句">
+<meta name="twitter:description" content="需要解决的问题在遇到需要修改线上数据的时候，有两种方式生成sql，第一种就是根据提供的需求来手动写SQL，审查，然后在测试环境跑一边确认无误，可以直接扔给运维去执行。第二种方法就是直接在图形化工具上修改，然后提取修改的SQL，这样提取的只要核对一遍数据的修改是否正确即可扔给运维执行。 很明显第二种可以很方便、很准确的提取出所需要的SQL。 如何解决的简述DataGrip就是可以按照上述第二种方式来">
+<meta name="twitter:image" content="http://wx1.sinaimg.cn/large/6c251c0dly1g0vg68yd72j20cu06aweo.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://litp.cn/2019/03/08/DataGrip如何提取SQL-update-语句/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>DataGrip 如何提取SQL语句 | Shen's</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shen's</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-首页">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-标签">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-归档">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://litp.cn/2019/03/08/DataGrip如何提取SQL-update-语句/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="沈弋">
+      <meta itemprop="description" content="沈弋的记录">
+      <meta itemprop="image" content="https://pet-liaison-station.oss-cn-shanghai.aliyuncs.com/markdown/IMG_5857.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shen's">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">DataGrip 如何提取SQL语句
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-08 15:58:18 / Modified: 16:05:46" itemprop="dateCreated datePublished" datetime="2019-03-08T15:58:18+08:00">2019-03-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><em>需要解决的问题</em><br>在遇到需要修改线上数据的时候，有两种方式生成sql，第一种就是根据提供的需求来手动写SQL，审查，然后在测试环境跑一边确认无误，可以直接扔给运维去执行。<br>第二种方法就是直接在图形化工具上修改，然后提取修改的SQL，这样提取的只要核对一遍数据的修改是否正确即可扔给运维执行。</p>
+<p>很明显第二种可以很方便、很准确的提取出所需要的SQL。</p>
+<h3 id="如何解决的简述"><a href="#如何解决的简述" class="headerlink" title="如何解决的简述"></a>如何解决的简述</h3><p>DataGrip就是可以按照上述第二种方式来给出所需要SQL的一个工具。</p>
+<h3 id="如何解决的详细描述"><a href="#如何解决的详细描述" class="headerlink" title="如何解决的详细描述"></a>如何解决的详细描述</h3><p><strong>1 修改需要的数据</strong></p>
+<blockquote>
+<p>首选查询出，需要修改的数据，然后直接在table上修改，双击即可编辑，编辑过后的数据有蓝色背景标识。<br><img src="http://wx1.sinaimg.cn/large/6c251c0dly1g0vg68yd72j20cu06aweo.jpg" alt></p>
+</blockquote>
+<p><strong>2 更改复制模式</strong></p>
+<blockquote>
+<p>默认复制模式，只是复制当前数据，在Database Console 窗口的右侧，可以看到修改复制模式的位置“红色标记”，选择SQL Updates 即可。<br><img src="http://wx4.sinaimg.cn/large/6c251c0dly1g0vg68doboj215s0emwh3.jpg" alt></p>
+</blockquote>
+<p><strong>3 复制一定要两列起</strong></p>
+<blockquote>
+<p>单独一个字段的复制，系统会默认复制当前字段的值，只有两个字段一起复制，才可以按照“复制模式”来复制出需要的数据，比如这次我修改的是字段“auto_repayment”但复制的是还需要增加随便一列，我选择的是“all_rate”<br><img src="http://wx2.sinaimg.cn/large/6c251c0dly1g0vg67xl2vj20qa08e0uf.jpg" alt></p>
+</blockquote>
+<p><strong>结果</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UPDATE p2p.p2p_p2pproduct SET all_rate = 14.4, auto_repayment = 2 WHERE id = 1369;</span><br><span class="line">UPDATE p2p.p2p_p2pproduct SET all_rate = 14.4, auto_repayment = 3 WHERE id = 1380;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/macOS/" rel="tag"># macOS</a>
+          
+            <a href="/tags/dataGrip/" rel="tag"># dataGrip</a>
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/08/pyenv常用命令/" rel="next" title="pyenv常用命令">
+                <i class="fa fa-chevron-left"></i> pyenv常用命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/07/CentOS安装VPN/" rel="prev" title="CentOS安装VPN（L2TP、Openvpn、SSR）">
+                CentOS安装VPN（L2TP、Openvpn、SSR） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://pet-liaison-station.oss-cn-shanghai.aliyuncs.com/markdown/IMG_5857.jpeg" alt="沈弋">
+            
+              <p class="site-author-name" itemprop="name">沈弋</p>
+              <p class="site-description motion-element" itemprop="description">沈弋的记录</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/littp" title="GitHub &rarr; https://github.com/littp" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/x5688" title="Weibo &rarr; https://weibo.com/x5688" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何解决的简述"><span class="nav-number">1.</span> <span class="nav-text">如何解决的简述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何解决的详细描述"><span class="nav-number">2.</span> <span class="nav-text">如何解决的详细描述</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">沈弋</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
