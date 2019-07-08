@@ -102,29 +102,27 @@
 
 
 
-  <meta name="description" content="需要解决的问题在遇到需要修改线上数据的时候，有两种方式生成sql，第一种就是根据提供的需求来手动写SQL，审查，然后在测试环境跑一边确认无误，可以直接扔给运维去执行。第二种方法就是直接在图形化工具上修改，然后提取修改的SQL，这样提取的只要核对一遍数据的修改是否正确即可扔给运维执行。 很明显第二种可以很方便、很准确的提取出所需要的SQL。 如何解决的简述DataGrip就是可以按照上述第二种方式来">
-<meta name="keywords" content="macOS,dataGrip,mysql">
+  <meta name="description" content="实用场景1、移动硬盘划分出来的一块Time Machine 盘 1空间不足的情况下，Time Machine备份的时候，会自动清除最老的备份。并不会提示空间不足。 2、想保留更久的备份记录但是空间不足 前提条件1、数据无价，提前做好备份，每一步操作，都要看好”预览”，以及谨慎点击”确定”。 2、整块硬盘除了Time Machine的其他分区一定是 “APFS” 格式。 1由于数据量很大，我这边2T">
+<meta name="keywords" content="macOS,硬盘,扩容">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DataGrip 如何提取SQL语句">
-<meta property="og:url" content="http://litp.cn/2019/03/08/DataGrip如何提取SQL-update-语句/index.html">
+<meta property="og:title" content="Time Machine硬盘空间扩容">
+<meta property="og:url" content="http://litp.cn/2019/07/08/Time_Machine硬盘空间扩容/index.html">
 <meta property="og:site_name" content="Shen&#39;s">
-<meta property="og:description" content="需要解决的问题在遇到需要修改线上数据的时候，有两种方式生成sql，第一种就是根据提供的需求来手动写SQL，审查，然后在测试环境跑一边确认无误，可以直接扔给运维去执行。第二种方法就是直接在图形化工具上修改，然后提取修改的SQL，这样提取的只要核对一遍数据的修改是否正确即可扔给运维执行。 很明显第二种可以很方便、很准确的提取出所需要的SQL。 如何解决的简述DataGrip就是可以按照上述第二种方式来">
+<meta property="og:description" content="实用场景1、移动硬盘划分出来的一块Time Machine 盘 1空间不足的情况下，Time Machine备份的时候，会自动清除最老的备份。并不会提示空间不足。 2、想保留更久的备份记录但是空间不足 前提条件1、数据无价，提前做好备份，每一步操作，都要看好”预览”，以及谨慎点击”确定”。 2、整块硬盘除了Time Machine的其他分区一定是 “APFS” 格式。 1由于数据量很大，我这边2T">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://wx1.sinaimg.cn/large/6c251c0dly1g0vg68yd72j20cu06aweo.jpg">
-<meta property="og:image" content="http://wx4.sinaimg.cn/large/6c251c0dly1g0vg68doboj215s0emwh3.jpg">
-<meta property="og:image" content="http://wx2.sinaimg.cn/large/6c251c0dly1g0vg67xl2vj20qa08e0uf.jpg">
-<meta property="og:updated_time" content="2019-03-08T08:05:46.507Z">
+<meta property="og:image" content="http://litp.cn/Users/shen/hexo/fornext/source/_posts/assets/image-20190708110434441.png">
+<meta property="og:updated_time" content="2019-07-08T09:30:17.024Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DataGrip 如何提取SQL语句">
-<meta name="twitter:description" content="需要解决的问题在遇到需要修改线上数据的时候，有两种方式生成sql，第一种就是根据提供的需求来手动写SQL，审查，然后在测试环境跑一边确认无误，可以直接扔给运维去执行。第二种方法就是直接在图形化工具上修改，然后提取修改的SQL，这样提取的只要核对一遍数据的修改是否正确即可扔给运维执行。 很明显第二种可以很方便、很准确的提取出所需要的SQL。 如何解决的简述DataGrip就是可以按照上述第二种方式来">
-<meta name="twitter:image" content="http://wx1.sinaimg.cn/large/6c251c0dly1g0vg68yd72j20cu06aweo.jpg">
+<meta name="twitter:title" content="Time Machine硬盘空间扩容">
+<meta name="twitter:description" content="实用场景1、移动硬盘划分出来的一块Time Machine 盘 1空间不足的情况下，Time Machine备份的时候，会自动清除最老的备份。并不会提示空间不足。 2、想保留更久的备份记录但是空间不足 前提条件1、数据无价，提前做好备份，每一步操作，都要看好”预览”，以及谨慎点击”确定”。 2、整块硬盘除了Time Machine的其他分区一定是 “APFS” 格式。 1由于数据量很大，我这边2T">
+<meta name="twitter:image" content="http://litp.cn/Users/shen/hexo/fornext/source/_posts/assets/image-20190708110434441.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://litp.cn/2019/03/08/DataGrip如何提取SQL-update-语句/">
+  <link rel="canonical" href="http://litp.cn/2019/07/08/Time_Machine硬盘空间扩容/">
 
 
 
@@ -134,7 +132,7 @@
   };
 </script>
 
-  <title>DataGrip 如何提取SQL语句 | Shen's</title>
+  <title>Time Machine硬盘空间扩容 | Shen's</title>
   
 
 
@@ -343,7 +341,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://litp.cn/2019/03/08/DataGrip如何提取SQL-update-语句/">
+    <link itemprop="mainEntityOfPage" href="http://litp.cn/2019/07/08/Time_Machine硬盘空间扩容/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="沈弋">
@@ -360,7 +358,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">DataGrip 如何提取SQL语句
+          <h2 class="post-title" itemprop="name headline">Time Machine硬盘空间扩容
 
               
             
@@ -386,7 +384,7 @@
                 
               
 
-              <time title="Created: 2019-03-08 15:58:18 / Modified: 16:05:46" itemprop="dateCreated datePublished" datetime="2019-03-08T15:58:18+08:00">2019-03-08</time>
+              <time title="Created: 2019-07-08 10:51:03 / Modified: 17:30:17" itemprop="dateCreated datePublished" datetime="2019-07-08T10:51:03+08:00">2019-07-08</time>
             
 
             
@@ -425,23 +423,26 @@
       
 
       
-        <p><em>需要解决的问题</em><br>在遇到需要修改线上数据的时候，有两种方式生成sql，第一种就是根据提供的需求来手动写SQL，审查，然后在测试环境跑一边确认无误，可以直接扔给运维去执行。<br>第二种方法就是直接在图形化工具上修改，然后提取修改的SQL，这样提取的只要核对一遍数据的修改是否正确即可扔给运维执行。</p>
-<p>很明显第二种可以很方便、很准确的提取出所需要的SQL。</p>
-<h3 id="如何解决的简述"><a href="#如何解决的简述" class="headerlink" title="如何解决的简述"></a>如何解决的简述</h3><p>DataGrip就是可以按照上述第二种方式来给出所需要SQL的一个工具。</p>
-<h3 id="如何解决的详细描述"><a href="#如何解决的详细描述" class="headerlink" title="如何解决的详细描述"></a>如何解决的详细描述</h3><p><strong>1 修改需要的数据</strong></p>
-<blockquote>
-<p>首选查询出，需要修改的数据，然后直接在table上修改，双击即可编辑，编辑过后的数据有蓝色背景标识。<br><img src="http://wx1.sinaimg.cn/large/6c251c0dly1g0vg68yd72j20cu06aweo.jpg" alt></p>
-</blockquote>
-<p><strong>2 更改复制模式</strong></p>
-<blockquote>
-<p>默认复制模式，只是复制当前数据，在Database Console 窗口的右侧，可以看到修改复制模式的位置“红色标记”，选择SQL Updates 即可。<br><img src="http://wx4.sinaimg.cn/large/6c251c0dly1g0vg68doboj215s0emwh3.jpg" alt></p>
-</blockquote>
-<p><strong>3 复制一定要两列起</strong></p>
-<blockquote>
-<p>单独一个字段的复制，系统会默认复制当前字段的值，只有两个字段一起复制，才可以按照“复制模式”来复制出需要的数据，比如这次我修改的是字段“auto_repayment”但复制的是还需要增加随便一列，我选择的是“all_rate”<br><img src="http://wx2.sinaimg.cn/large/6c251c0dly1g0vg67xl2vj20qa08e0uf.jpg" alt></p>
-</blockquote>
-<p><strong>结果</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UPDATE p2p.p2p_p2pproduct SET all_rate = 14.4, auto_repayment = 2 WHERE id = 1369;</span><br><span class="line">UPDATE p2p.p2p_p2pproduct SET all_rate = 14.4, auto_repayment = 3 WHERE id = 1380;</span><br></pre></td></tr></table></figure>
+        <h4 id="实用场景"><a href="#实用场景" class="headerlink" title="实用场景"></a>实用场景</h4><p>1、移动硬盘划分出来的一块Time Machine 盘</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">空间不足的情况下，Time Machine备份的时候，会自动清除最老的备份。并不会提示空间不足。</span><br></pre></td></tr></table></figure>
+<p>2、想保留更久的备份记录但是空间不足</p>
+<h4 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h4><p><strong>1、数据无价，提前做好备份，每一步操作，都要看好”预览”，以及谨慎点击”确定”。</strong></p>
+<p>2、整块硬盘除了Time Machine的其他分区一定是 “APFS” 格式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">由于数据量很大，我这边2T左右的数据要折腾，NTFS格式不确定是否稳定，不建议尝试。</span><br></pre></td></tr></table></figure>
+<p>3、一根连接紧密，不会轻易松掉的数据线。</p>
+<p>4、先确定自己的硬盘分区是否和我的相同，我简单阐述一下需要怎样处理，然后操作方式大同小异。</p>
+<p><img src="/Users/shen/hexo/fornext/source/_posts/assets/image-20190708110434441.png" alt="image-20190708110434441"></p>
+<p>如上图举例，一块硬盘分成了 A B C 三块分区，存储不同数据。</p>
+<p>每一块分区的数据，都是从头开始写入，然后慢慢向后填满，也就是说如果想把A扩充从1T变成1.5T，那么就需要先将B的数据移动到其他位置，空出B的头部，然后切割B分区为0.5T+1.5T，再将0.5T合并到A。</p>
+<h5 id="举例操作"><a href="#举例操作" class="headerlink" title="举例操作"></a>举例操作</h5><p>扩充A分区从1T变成1.5T</p>
+<p>1、移动B分区的数据到C分区，当然也可以移动到其他硬盘。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">但是由于硬盘内移动速度会快一点，大量的数据还是建议在一个硬盘内推送。</span><br></pre></td></tr></table></figure>
+<p>2、打开macOS内的”磁盘工具”，选中B磁盘，点击”分区”，拆分成0.5+1.5。</p>
+<p>3、在”磁盘工具”内点击刚划分的0.5分区，点击”分区”，点击”减号”，此时预览可以看到0.5被自动划分到了A分区，<strong>预览显示没问题，再点击”确定”，自动开始执行划分</strong>。</p>
+<h5 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h5><p>移动数据过程中，可能遇到C分区不足以容纳下B分区的所有数据，此时我的做法是分两种</p>
+<p>1、数据移动到A一部分</p>
+<p>2、缩减B分区空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">缩减B分区的过程中，如果数据量大，划分过程会很久，一定要等待，期间不要关闭笔记本，不要拔掉一定硬盘。</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -467,9 +468,9 @@
           
             <a href="/tags/macOS/" rel="tag"># macOS</a>
           
-            <a href="/tags/dataGrip/" rel="tag"># dataGrip</a>
+            <a href="/tags/硬盘/" rel="tag"># 硬盘</a>
           
-            <a href="/tags/mysql/" rel="tag"># mysql</a>
+            <a href="/tags/扩容/" rel="tag"># 扩容</a>
           
         </div>
       
@@ -482,8 +483,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/08/pyenv常用命令/" rel="next" title="pyenv常用命令">
-                <i class="fa fa-chevron-left"></i> pyenv常用命令
+              <a href="/2019/06/27/django修改数据库表名_删除APP前缀/" rel="next" title="django修改数据库表名">
+                <i class="fa fa-chevron-left"></i> django修改数据库表名
               </a>
             
           </div>
@@ -491,10 +492,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/07/CentOS安装VPN/" rel="prev" title="CentOS安装VPN（L2TP、Openvpn、SSR）">
-                CentOS安装VPN（L2TP、Openvpn、SSR） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -682,7 +679,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何解决的简述"><span class="nav-number">1.</span> <span class="nav-text">如何解决的简述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何解决的详细描述"><span class="nav-number">2.</span> <span class="nav-text">如何解决的详细描述</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#实用场景"><span class="nav-number">1.</span> <span class="nav-text">实用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前提条件"><span class="nav-number">2.</span> <span class="nav-text">前提条件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#举例操作"><span class="nav-number">2.1.</span> <span class="nav-text">举例操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#可能遇到的问题"><span class="nav-number">2.2.</span> <span class="nav-text">可能遇到的问题</span></a></li></ol></li></ol></div>
             
 
           </div>
