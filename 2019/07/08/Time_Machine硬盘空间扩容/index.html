@@ -110,12 +110,13 @@
 <meta property="og:site_name" content="Shen&#39;s">
 <meta property="og:description" content="实用场景1、移动硬盘划分出来的一块Time Machine 盘 1空间不足的情况下，Time Machine备份的时候，会自动清除最老的备份。并不会提示空间不足。 2、想保留更久的备份记录但是空间不足 前提条件1、数据无价，提前做好备份，每一步操作，都要看好”预览”，以及谨慎点击”确定”。 2、整块硬盘除了Time Machine的其他分区一定是 “APFS” 格式。 1由于数据量很大，我这边2T">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://litp.cn/Users/shen/hexo/fornext/source/_posts/assets/image-20190708110434441.png">
-<meta property="og:updated_time" content="2019-07-08T09:30:17.024Z">
+<meta property="og:image" content="https://pet-liaison-station.oss-cn-shanghai.aliyuncs.com/markdown/timemachine_kuorong_01.png">
+<meta property="og:image" content="https://pet-liaison-station.oss-cn-shanghai.aliyuncs.com/markdown/timemachine_kuorong_02.png">
+<meta property="og:updated_time" content="2019-07-08T09:34:34.203Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Time Machine硬盘空间扩容">
 <meta name="twitter:description" content="实用场景1、移动硬盘划分出来的一块Time Machine 盘 1空间不足的情况下，Time Machine备份的时候，会自动清除最老的备份。并不会提示空间不足。 2、想保留更久的备份记录但是空间不足 前提条件1、数据无价，提前做好备份，每一步操作，都要看好”预览”，以及谨慎点击”确定”。 2、整块硬盘除了Time Machine的其他分区一定是 “APFS” 格式。 1由于数据量很大，我这边2T">
-<meta name="twitter:image" content="http://litp.cn/Users/shen/hexo/fornext/source/_posts/assets/image-20190708110434441.png">
+<meta name="twitter:image" content="https://pet-liaison-station.oss-cn-shanghai.aliyuncs.com/markdown/timemachine_kuorong_01.png">
 
 
 
@@ -384,7 +385,7 @@
                 
               
 
-              <time title="Created: 2019-07-08 10:51:03 / Modified: 17:30:17" itemprop="dateCreated datePublished" datetime="2019-07-08T10:51:03+08:00">2019-07-08</time>
+              <time title="Created: 2019-07-08 10:51:03 / Modified: 17:34:34" itemprop="dateCreated datePublished" datetime="2019-07-08T10:51:03+08:00">2019-07-08</time>
             
 
             
@@ -431,7 +432,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">由于数据量很大，我这边2T左右的数据要折腾，NTFS格式不确定是否稳定，不建议尝试。</span><br></pre></td></tr></table></figure>
 <p>3、一根连接紧密，不会轻易松掉的数据线。</p>
 <p>4、先确定自己的硬盘分区是否和我的相同，我简单阐述一下需要怎样处理，然后操作方式大同小异。</p>
-<p><img src="/Users/shen/hexo/fornext/source/_posts/assets/image-20190708110434441.png" alt="image-20190708110434441"></p>
+<p><img src="https://pet-liaison-station.oss-cn-shanghai.aliyuncs.com/markdown/timemachine_kuorong_01.png" alt="image-20190708110434441"></p>
 <p>如上图举例，一块硬盘分成了 A B C 三块分区，存储不同数据。</p>
 <p>每一块分区的数据，都是从头开始写入，然后慢慢向后填满，也就是说如果想把A扩充从1T变成1.5T，那么就需要先将B的数据移动到其他位置，空出B的头部，然后切割B分区为0.5T+1.5T，再将0.5T合并到A。</p>
 <h5 id="举例操作"><a href="#举例操作" class="headerlink" title="举例操作"></a>举例操作</h5><p>扩充A分区从1T变成1.5T</p>
@@ -439,6 +440,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">但是由于硬盘内移动速度会快一点，大量的数据还是建议在一个硬盘内推送。</span><br></pre></td></tr></table></figure>
 <p>2、打开macOS内的”磁盘工具”，选中B磁盘，点击”分区”，拆分成0.5+1.5。</p>
 <p>3、在”磁盘工具”内点击刚划分的0.5分区，点击”分区”，点击”减号”，此时预览可以看到0.5被自动划分到了A分区，<strong>预览显示没问题，再点击”确定”，自动开始执行划分</strong>。</p>
+<p><img src="https://pet-liaison-station.oss-cn-shanghai.aliyuncs.com/markdown/timemachine_kuorong_02.png" alt="image-20190708110434441"></p>
 <h5 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h5><p>移动数据过程中，可能遇到C分区不足以容纳下B分区的所有数据，此时我的做法是分两种</p>
 <p>1、数据移动到A一部分</p>
 <p>2、缩减B分区空间</p>
