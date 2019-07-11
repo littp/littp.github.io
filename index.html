@@ -425,29 +425,23 @@
       
         
           
-            <h4 id="实用场景"><a href="#实用场景" class="headerlink" title="实用场景"></a>实用场景</h4><p>1、移动硬盘划分出来的一块Time Machine 盘</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">空间不足的情况下，Time Machine备份的时候，会自动清除最老的备份。并不会提示空间不足。</span><br></pre></td></tr></table></figure>
-<p>2、想保留更久的备份记录但是空间不足</p>
-<h4 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h4><p><strong>1、数据无价，提前做好备份，每一步操作，都要看好”预览”，以及谨慎点击”确定”。</strong></p>
-<p>2、整块硬盘除了Time Machine的其他分区一定是 “APFS” 格式。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">由于数据量很大，我这边2T左右的数据要折腾，NTFS格式不确定是否稳定，不建议尝试。</span><br></pre></td></tr></table></figure>
-<p>3、一根连接紧密，不会轻易松掉的数据线。</p>
-<p>4、先确定自己的硬盘分区是否和我的相同，我简单阐述一下需要怎样处理，然后操作方式大同小异。</p>
-<p><img src="https://pet-liaison-station.oss-cn-shanghai.aliyuncs.com/markdown/timemachine_kuorong_01.png" alt="image-20190708110434441"></p>
-<p>如上图举例，一块硬盘分成了 A B C 三块分区，存储不同数据。</p>
-<p>每一块分区的数据，都是从头开始写入，然后慢慢向后填满，也就是说如果想把A扩充从1T变成1.5T，那么就需要先将B的数据移动到其他位置，空出B的头部，然后切割B分区为0.5T+1.5T，再将0.5T合并到A。</p>
-<h5 id="举例操作"><a href="#举例操作" class="headerlink" title="举例操作"></a>举例操作</h5><p>扩充A分区从1T变成1.5T</p>
-<p>1、移动B分区的数据到C分区，当然也可以移动到其他硬盘。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">但是由于硬盘内移动速度会快一点，大量的数据还是建议在一个硬盘内推送。</span><br></pre></td></tr></table></figure>
-<p>2、打开macOS内的”磁盘工具”，选中B磁盘，点击”分区”，拆分成0.5+1.5。</p>
-<p>3、在”磁盘工具”内点击刚划分的0.5分区，点击”分区”，点击”减号”，此时预览可以看到0.5被自动划分到了A分区，<strong>预览显示没问题，再点击”确定”，自动开始执行划分</strong>。</p>
-<p><img src="https://pet-liaison-station.oss-cn-shanghai.aliyuncs.com/markdown/timemachine_kuorong_02.png" alt="image-20190708110434441"></p>
-<h5 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h5><p>移动数据过程中，可能遇到C分区不足以容纳下B分区的所有数据，此时我的做法是分两种</p>
-<p>1、数据移动到A一部分</p>
-<p>2、缩减B分区空间</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">缩减B分区的过程中，如果数据量大，划分过程会很久，一定要等待，期间不要关闭笔记本，不要拔掉一定硬盘。</span><br></pre></td></tr></table></figure>
-
+            <p>
+              实用场景1、移动硬盘划分出来的一块Time Machine 盘
+空间不足的情况下，Time Machine备份的时候，会自动清除最老的备份。并不会提示空间不足。
+2、想保留更久的备份记录但是空间不足
+前提条件1、数据无价，提前做好备份，每一步操作，都要看好”预览”，以及谨慎点击”确定”。
+2、整块硬
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/08/Time_Machine硬盘空间扩容/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -600,16 +594,22 @@
       
         
           
-            <h4 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h4><p>数据库的表名自动生成，按照APPname+表名生成的，但是由于接口需要，表名不可以是这样的构造，只能是表名称自己，不可以加前缀，以下记录一下修改过程以及命令。</p>
-<p>Django版本：1.6</p>
-<p>第一步：生成空文件，以记录变更</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">命令：python manage.py schemamigration appname --empty name_of_migration</span><br><span class="line"></span><br><span class="line">appname:app的name根据实际情况</span><br><span class="line">name_of_migration：最终生成修改记录文件的名称，可以用这个也可以随便取一个别的，就是0001开头的文件，自动保存在migrations目录下</span><br></pre></td></tr></table></figure>
-<p>第二步：修改生成的文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">打开第一步生成的文件</span><br><span class="line">修改如下部分内容</span><br><span class="line">class Migration(SchemaMigration):</span><br><span class="line">def forwards(self, orm):</span><br><span class="line">        db.rename_table(&apos;yourapp_foo&apos;, &apos;yourapp_bar&apos;)</span><br><span class="line">def backwards(self, orm):</span><br><span class="line">        db.rename_table(&apos;yourapp_bar&apos;,&apos;yourapp_foo&apos;)   </span><br><span class="line"></span><br><span class="line">旧名字：yourapp_foo</span><br><span class="line">新名字：yourapp_bar(这里可以用appname+名字，也可以直接写名字)</span><br></pre></td></tr></table></figure>
-<p>第三步：同步数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py migrate appname</span><br></pre></td></tr></table></figure>
-
+            <p>
+              前提数据库的表名自动生成，按照APPname+表名生成的，但是由于接口需要，表名不可以是这样的构造，只能是表名称自己，不可以加前缀，以下记录一下修改过程以及命令。
+Django版本：1.6
+第一步：生成空文件，以记录变更
+命令：python manage.py schemamigration app
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/06/27/django修改数据库表名_删除APP前缀/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -762,34 +762,20 @@
       
         
           
-            <h4 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h4><p>我抹掉了手机，重新刷机之后从iCloud同步数据下来，然后我的健康数据，从2018年10月份之后的全部丢书，遂找客服解决问题。</p>
-<h4 id="目前情况："><a href="#目前情况：" class="headerlink" title="目前情况："></a>目前情况：</h4><p>截止 2019-06-14 苹果客服的回复依然是，数据无法找回，并且不知道丢失原因，同时因为不知道丢失原因所以拒绝我的申请赔偿（我申请了10年的iCloud付费赔偿，我是6元款，10年一共700多块。）</p>
-<p>按照时间线梳理下我的问题<br>以下包含了每一次问题的案例ID，都可追述。</p>
-<h4 id="2018年"><a href="#2018年" class="headerlink" title="2018年"></a>2018年</h4><p>具体忘了几月份，我买了新的Apple Watch，然后更换新的Apple Watch之后，我的健身记录、奖章等相关信息全部丢失，后来询问客服的得知，要么itunes加密备份，要么开iCloud 。但是当时没有开iCloud ，所以后来一直开着iCloud。谨记着这件事儿。</p>
-<h4 id="2019年3月12日"><a href="#2019年3月12日" class="headerlink" title="2019年3月12日"></a>2019年3月12日</h4><p>突然想起来之前更换Apple Watch的时候丢失数据的问题，所以和苹果客服确认iCloud是否会同步我的健康数据。<br>案例 ID： 100778850732，以下是部分对话截图<br>“<br>Luka<br>因为这边我查看到的信息表示只要watch配对iPhone后，并且同步相关的信息，在iPhone通过 iCloud备份后，是可以进行备份相关奖章的信息。</p>
-<p>弋 沈<br>哪里有写 麻烦发给我</p>
-<p>弋 沈<br>因为我在你们的使用说明没有看到！</p>
-<p>Luka<br>这是我与我们的高级技术顾问进行沟通后的出来的结论哦。<br>”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这里明确写明了iCloud备份包含Apple Watch数据（https://support.apple.com/zh-cn/HT204518）</span><br><span class="line">以上以此依据，我就在4.12做了手机数据抹除的操作，准备从iCloud恢复。</span><br></pre></td></tr></table></figure>
-<h4 id="问题发生在2019年4月12日"><a href="#问题发生在2019年4月12日" class="headerlink" title="问题发生在2019年4月12日"></a>问题发生在2019年4月12日</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">（后悔的一件事就是没有使用itunes本地备份一下）</span><br></pre></td></tr></table></figure>
-<p>4.12 的时候我觉得最近手机卡的不行，就打算把手机完全抹掉数据恢复试试，然后我就这样做了。<br>并且我为了保证iCloud云端正常，我在抹掉数据之前，手动点击了一下iCloud云备份。</p>
-<p>恢复之后，我查看我的“健康记录APP”显示正在从iCloud同步数据，我就在等，真的担心数据丢失</p>
-<p>果不其然，我的数据丢失了，数据只显示了2018年10月份之前的数据，11月份到2019年4月份的数据全部消失不见。</p>
-<p>尽快的时间打苹果客服咨询问题，从此开始踏上了长长的解释问题之路。</p>
-<p>解释的主要问题在于“iCloud同步”和“iCloud备份”这是两个事情，但是苹果客服一直不理解。</p>
-<p>案例ID：20000045608958</p>
-<p>从4月12日一直拖到了4月25日才有准确的回复，说我的手机没问题，还说他们多次和工程部核实，都说iCloud不包含Apple Watch隐私数据，然后我就问（<a href="https://support.apple.com/zh-cn/HT204518）这里的怎么解释，然而客服还是会说，iCloud不包含Apple" target="_blank" rel="noopener">https://support.apple.com/zh-cn/HT204518）这里的怎么解释，然而客服还是会说，iCloud不包含Apple</a> Watch的隐私数据是工程部回复的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">我又继续那我的数据丢失原因能找到么？</span><br><span class="line">客服回复：因为备份不包含隐私数据，所以没有是正常的。</span><br><span class="line">我：那么我的数据为何2018年10月份之前的有？</span><br><span class="line">客服回复：那这个我还需要和工程部核实。</span><br><span class="line">就这样没完没了的讲这个问题，我就一怒之下投诉到了12315</span><br><span class="line">北京的12315电话是96315，很奇葩是吧？</span><br></pre></td></tr></table></figure>
-<p>投诉完了之后，就有新的行政人来跟进这个问题</p>
-<p>简单说</p>
-<h4 id="5月初行政人员给我联系了一个工程部的人跟我要日志log，然后收集数据之后等待。"><a href="#5月初行政人员给我联系了一个工程部的人跟我要日志log，然后收集数据之后等待。" class="headerlink" title="5月初行政人员给我联系了一个工程部的人跟我要日志log，然后收集数据之后等待。"></a>5月初行政人员给我联系了一个工程部的人跟我要日志log，然后收集数据之后等待。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5月底我咨询还有没有消息，给我回复说备份不包含Apple Watch敏感信息，我很头大？？？？</span><br><span class="line">我说：iCloud备份没有可以理解，那么我说的是iCloud同步？</span><br><span class="line">行政：说了一堆没用的</span><br><span class="line">我说：我要重试一下我之前抹除操作，如果我从iCloud恢复回来，有最新的4 5 6 月份的数据，那就证明iCloud包含隐私数据，那么我之前丢失的数据，就是iCloud有问题。</span><br><span class="line">行政：好</span><br></pre></td></tr></table></figure>
-<h4 id="然后我在6月4日，全程录像，做了4月12日相同的操作。"><a href="#然后我在6月4日，全程录像，做了4月12日相同的操作。" class="headerlink" title="然后我在6月4日，全程录像，做了4月12日相同的操作。"></a>然后我在6月4日，全程录像，做了4月12日相同的操作。</h4><p>结果，我的iCloud数据完整恢复回来了，并且包含我4月12日之后一直到6月4日当天。也就意味iCloud是包含我的Apple Watch健康数据的，证明我4月12日的操作没问题，那么我4月12日之前到2018年10月份的数据为何丢失？<br>￼</p>
-<p>行政给我的回复是这样的：我们会派工程师再和您询问。<br>然后这次的工程师终于明白我说的iCloud备份和iCloud问题。并且和我说会回去给我查找原因。</p>
-<h4 id="6月11日-行政回电"><a href="#6月11日-行政回电" class="headerlink" title="6月11日 行政回电"></a>6月11日 行政回电</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">你的数据缺失丢失了，但是由于我们工程部采集你手机数据是在5月份，并不知道你4月份的手机情况，工程部只能查询到5月份的手机没问题，并不能知道4月份你的手机问题。</span><br><span class="line">我：wtf？？那我4月份的时候咨询客服为什么不给我找工程师要日志？</span><br><span class="line">行政：这方面我会找客服相关负责人沟通，以便确定问题</span><br><span class="line">我：那我这次的抹除之后，恢复下来的数据是包含2019年4月12日当天的，也就证明从这一刻开始我的iCloud数据通不正常，应该是在我抹除数据之前手机的同步一直都不正常，那么我要是不做这个操作，我的数据就永远都没有从不到iCloud？而且iCloud 并没有地方可以看到我的健康数据同步到了什么时间。依次我无法确认我的iCloud是否正常同步，只抹掉数据之后，看看能不能恢复，如果能恢复就证明我的数据正常，如果不能恢复就证明我的设备有问题？？</span><br><span class="line">行政：很抱歉 因为采集日志已经在5月份，所以我们没办法知道你4月份手机的情况</span><br><span class="line">我：那我4月份之前的数据丢失是我的责任么？</span><br><span class="line">行政：因为我们不知道你手机4月份是什么情况，所以我们没办法查询是谁的责任。</span><br><span class="line">我：无语。。。那我就申请赔偿吧。10年的iCloud自动续费</span><br><span class="line">行政：那你得给个标准，你是多少钱的用户需要什么档次的。</span><br><span class="line">我：就我现在的就行，6元每月。</span><br><span class="line">行政：好的，我这边和相关部门申请，给你回电。</span><br></pre></td></tr></table></figure>
-<h4 id="6月14日-行政回电"><a href="#6月14日-行政回电" class="headerlink" title="6月14日 行政回电"></a>6月14日 行政回电</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">行政：很抱歉我们这边没办法给您补偿，因为我们无法定责给工程部。</span><br><span class="line">我：那我的数据丢失了就没有说法了？</span><br><span class="line">行政：这个问题我们上一次已经说过了，同事为了您的体验，我们决定送您一款Apple Watch的表带或者iPhone手机壳。</span><br><span class="line">我：我决绝</span><br><span class="line">行政：那就很抱歉了，我们没有其他办法。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">其实我的问题很简单，我抹掉数据之后从iCloud恢复，但是我的数据没有恢复成功，那么为什么？</span><br><span class="line"></span><br><span class="line">就告诉我为什么就好了啊，这次沟通怎么这样费劲。</span><br></pre></td></tr></table></figure>
-<h4 id="以上问题只是用于记录，我也不知道还有那些好的方法可以解决我的问题"><a href="#以上问题只是用于记录，我也不知道还有那些好的方法可以解决我的问题" class="headerlink" title="以上问题只是用于记录，我也不知道还有那些好的方法可以解决我的问题"></a>以上问题只是用于记录，我也不知道还有那些好的方法可以解决我的问题</h4><h4 id="1、iCloud看不到数据同步的时间节点，我无法看到我的健康数据是否同步成功以及同步到那一天"><a href="#1、iCloud看不到数据同步的时间节点，我无法看到我的健康数据是否同步成功以及同步到那一天" class="headerlink" title="1、iCloud看不到数据同步的时间节点，我无法看到我的健康数据是否同步成功以及同步到那一天"></a>1、iCloud看不到数据同步的时间节点，我无法看到我的健康数据是否同步成功以及同步到那一天</h4><h4 id="2、问题1的情况存在于iCloud的任何一项，因为哪一项都是没有最后同步时间显示的"><a href="#2、问题1的情况存在于iCloud的任何一项，因为哪一项都是没有最后同步时间显示的" class="headerlink" title="2、问题1的情况存在于iCloud的任何一项，因为哪一项都是没有最后同步时间显示的"></a>2、问题1的情况存在于iCloud的任何一项，因为哪一项都是没有最后同步时间显示的</h4><h4 id="3、任何对于手机有刷机风险的操作一定要做itunes的加密备份，并且一定要记住密码，这个密码是无法找回的。"><a href="#3、任何对于手机有刷机风险的操作一定要做itunes的加密备份，并且一定要记住密码，这个密码是无法找回的。" class="headerlink" title="3、任何对于手机有刷机风险的操作一定要做itunes的加密备份，并且一定要记住密码，这个密码是无法找回的。"></a>3、任何对于手机有刷机风险的操作一定要做itunes的加密备份，并且一定要记住密码，这个密码是无法找回的。</h4><h4 id="4、我的问题估计也就到现在这样了，也真的很无语。备份一定要做。切记"><a href="#4、我的问题估计也就到现在这样了，也真的很无语。备份一定要做。切记" class="headerlink" title="4、我的问题估计也就到现在这样了，也真的很无语。备份一定要做。切记"></a>4、我的问题估计也就到现在这样了，也真的很无语。备份一定要做。切记</h4>
+            <p>
+              问题描述：我抹掉了手机，重新刷机之后从iCloud同步数据下来，然后我的健康数据，从2018年10月份之后的全部丢书，遂找客服解决问题。
+目前情况：截止 2019-06-14 苹果客服的回复依然是，数据无法找回，并且不知道丢失原因，同时因为不知道丢失原因所以拒绝我的申请赔偿（我申请了10年的iClo
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/06/14/Apple Watch健康数据丢失问题记录/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -930,110 +916,48 @@
       
         
           
-            <h4 id="坚果云"><a href="#坚果云" class="headerlink" title="坚果云"></a>坚果云</h4><p>官网：<a href="https://www.jianguoyun.com/" target="_blank" rel="noopener">https://www.jianguoyun.com/</a></p>
-<p>价格：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">免费版</th>
-<th style="text-align:center">专业版（主推）</th>
-<th style="text-align:center">高级专业版</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">上传流量1G/月</td>
-<td style="text-align:center">付费空间 30G</td>
-<td style="text-align:center">付费空间 72G</td>
-</tr>
-<tr>
-<td style="text-align:center">下载流量3G/月</td>
-<td style="text-align:center">年付加享空间1G/月</td>
-<td style="text-align:center">年付加享空间2G/月</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">上传下载不限速</td>
-<td style="text-align:center">上传下载不限速</td>
-<td style="text-align:center">上传下载不限速</td>
-</tr>
-<tr>
-<td style="text-align:center">账号安全防护</td>
-<td style="text-align:center">账号安全防护</td>
-<td style="text-align:center">账号安全防护</td>
-</tr>
-<tr>
-<td style="text-align:center">跨平台多设备支持</td>
-<td style="text-align:center">跨平台多设备支持</td>
-<td style="text-align:center">跨平台多设备支持</td>
-</tr>
-<tr>
-<td style="text-align:center">照片自动备份</td>
-<td style="text-align:center">照片自动备份</td>
-<td style="text-align:center">照片自动备份</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">视频自动备份</td>
-<td style="text-align:center">视频自动备份</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">增强的文件分享功能</td>
-<td style="text-align:center">增强的文件分享功能</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">全平台文件搜索</td>
-<td style="text-align:center">全平台文件搜索</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">文件保留3个月内历史版本</td>
-<td style="text-align:center">文件保留3个月内历史版本</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">3个月内误删文件恢复</td>
-<td style="text-align:center">3个月内误删文件恢复</td>
-</tr>
-</tbody>
-</table>
-<p>个人建议，刚开始使用坚果云并没有作为主力云盘的话，可以先使用免费版，等待确定使用感受没问题，再做付费选择。</p>
-<p>专业版相比较免费版增加的的功能</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;增强的文件分享功能&quot;：免费版分享的链接只有注册用户才可以查看，专业版分享的连接，可以选任意用户查看，即不用登陆即可查看和下载。</span><br><span class="line"></span><br><span class="line">&quot;全平台文件搜索&quot;：全平台搜索是指所有的平台，网页版，电脑客户端，移动APP都可以搜索，免费版只能在客户端搜索。</span><br><span class="line"></span><br><span class="line">&quot;版本记录和恢复功能&quot;：我觉得是很重要的，这可以防止3个月内的意外发生。</span><br></pre></td></tr></table></figure>
-<h5 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h5><p>1、状态都是实时响应的，并且可以看明白，什么状态什么情况，一目了然，比iCloud强，当然其他网盘也很一目了然</p>
-<p>2、可查看历史版本</p>
-<p>3、可手动选择某个文件来释放本地空间。</p>
-<h5 id="缺点：有点贵"><a href="#缺点：有点贵" class="headerlink" title="缺点：有点贵"></a>缺点：有点贵</h5><p>值不值得：鉴于国内网络环境，还是推荐坚果云，iCloud、Google等网络都是硬伤。</p>
-<h4 id="iCloud-苹果家的云盘"><a href="#iCloud-苹果家的云盘" class="headerlink" title="iCloud 苹果家的云盘"></a>iCloud 苹果家的云盘</h4><p>官网：<a href="https://icloud.com" target="_blank" rel="noopener">https://icloud.com</a></p>
-<p>价格：50GB=6元/月，200GB=21元/月，2TB=68/月 （后两者都可家庭共享）</p>
-<p>优点：价格绝对是优势，而且apple的隐私性，我个人觉得是非常好的，可以信赖，上传和下载不限制速度，而且可以自由分享，比较适合Apple全套的人来用。</p>
-<p>缺点：iCloud的同步机制很惆怅，有些时候文件不会同步上去，也没有手动触发按钮（这一点最坑了，有些时候本地删除了文件，并且也同步成功了，但是总占用空间不变。没有版本记录。</p>
-<h5 id="值不值得：iCloud如果试用的是贵州云那么速度还是可以的，只是缺点里提到的莫名的问题很头疼，但我还是开着6元的包月，最起码我的照片是在iCloud上的，起码比某些云盘隐私性高。"><a href="#值不值得：iCloud如果试用的是贵州云那么速度还是可以的，只是缺点里提到的莫名的问题很头疼，但我还是开着6元的包月，最起码我的照片是在iCloud上的，起码比某些云盘隐私性高。" class="headerlink" title="值不值得：iCloud如果试用的是贵州云那么速度还是可以的，只是缺点里提到的莫名的问题很头疼，但我还是开着6元的包月，最起码我的照片是在iCloud上的，起码比某些云盘隐私性高。"></a>值不值得：iCloud如果试用的是贵州云那么速度还是可以的，只是缺点里提到的莫名的问题很头疼，但我还是开着6元的包月，最起码我的照片是在iCloud上的，起码比某些云盘隐私性高。</h5><h4 id="Github-（被微软收购之后新增了免费的隐私仓库"><a href="#Github-（被微软收购之后新增了免费的隐私仓库" class="headerlink" title="Github （被微软收购之后新增了免费的隐私仓库"></a>Github （被微软收购之后新增了免费的隐私仓库</h4><p>官网：<a href="https://github.com" target="_blank" rel="noopener">https://github.com</a></p>
-<p>价格：免费</p>
-<p>Github原本是程序员常用的网站，用来存储开源代码，在此我也不太推荐存放个人文件尤其是大文件，这样既浪费空间，又有些占便宜。</p>
-<h5 id="优点：-1"><a href="#优点：-1" class="headerlink" title="优点："></a>优点：</h5><p>1、版本记录非常详细（基于每次的提交）</p>
-<p>2、免费很有诱惑力</p>
-<p>3、速度还算可以</p>
-<p>4、隐私性高</p>
-<p>5、有官方的GUI，相比较命令行来讲很不错了。</p>
-<p>6、推送过的文件，即使删除了，也可以从历史记录找回，永久性的（除非删掉仓库）</p>
-<h5 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h5><p>缺点就很明显了，毕竟不是专业云盘来的。</p>
-<p>1、需要手动提交推送，这样才会保留历史状态和同步到云端。</p>
-<p>2、大于100MB文件无法直接推送，需要安装扩展（<a href="http://litp.cn/2019/05/21/Github%E4%B8%8A%E4%BC%A0%E5%A4%A7%E6%96%87%E4%BB%B6%20%E5%A4%A7%E4%BA%8E100MB/">参考这里</a>），当然安装完了扩展之后，也一样推送。</p>
-<p>3、每次推送的量如果很大，就会很容易失败。</p>
-<p>4、本地无法释放空间，本地如果删除了，下次推送的话，云上会对应删除。</p>
-<p>5、使用门槛稍微高一丢丢</p>
-<h4 id="百度云盘、微云"><a href="#百度云盘、微云" class="headerlink" title="百度云盘、微云"></a>百度云盘、微云</h4><p>这两个都感觉是作为分享类、公开化的云盘，搞搞电影啊、安装工具啊就挺好，不适合做私密文件同步，不建议作为自己的个人云盘。</p>
-<h4 id="Google-drive、OneDrive、Dropbox"><a href="#Google-drive、OneDrive、Dropbox" class="headerlink" title="Google drive、OneDrive、Dropbox"></a>Google drive、OneDrive、Dropbox</h4><p>这三类均需要科学上网才能使用，鉴于我自己的网络情况，波动很大，所以没有考虑过这些。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Google的云相册还是好用的，我的手机在用，Google相册可以选择高清分辨率上传，这样就免费空间，我手机的情况是，Google同步所有的相册并且是高分辨率的，iCloud同步手机的实时相册并且是原图。</span><br></pre></td></tr></table></figure>
+            <p>
+              坚果云官网：https://www.jianguoyun.com/
+价格：
 
+
+
+免费版
+专业版（主推）
+高级专业版
+
+
+
+
+上传流量1G/月
+付费空间 30G
+付费空间 72G
+
+
+下载流量3G/月
+年付加享空间1G/月
+年付加享空间2G/月
+
+
+
+
+
+
+
+上传下载不限速
+上传下载不限速
+上传下载
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/06/12/个人云盘说说自己的看法/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1186,22 +1110,20 @@
       
         
           
-            <p>使用github作为仓库的时候面向开发者还好，几乎代码都是属于细小零碎文件，但是如果面向大部分文件都是 .mp3、.psd 这类的就要谨慎了，因为这类文件很轻松就超过100MB，然而在github上传协议中，超过100MB的文件需要使用扩展来处理，而不是可以直接上传的。</p>
-<h3 id="2019-06-24-更新"><a href="#2019-06-24-更新" class="headerlink" title="2019-06-24 更新"></a>2019-06-24 更新</h3><p>Git LFS 是有空间限制的</p>
-<p>查看地址：<a href="https://github.com/settings/billing" target="_blank" rel="noopener">https://github.com/settings/billing</a></p>
-<p>免费可用 100G，5美元  50GB/month</p>
-<h3 id="Git-Large-File-Storage"><a href="#Git-Large-File-Storage" class="headerlink" title="Git Large File Storage"></a>Git Large File Storage</h3><p>github 官方扩展 (<a href="https://help.github.com/en/articles/installing-git-large-file-storage" target="_blank" rel="noopener">https://help.github.com/en/articles/installing-git-large-file-storage</a>)</p>
-<p>macOS 举例</p>
-<h5 id="安装命令："><a href="#安装命令：" class="headerlink" title="安装命令："></a>安装命令：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install git-lfs</span><br></pre></td></tr></table></figure>
-<h5 id="使用命令："><a href="#使用命令：" class="headerlink" title="使用命令："></a>使用命令：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git lfs track &quot;*.psd&quot;  //所有psd文件都使用lfs上传</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>⬆️注意：<br>1、lfs 只能根据扩展名来过滤哪些使用lfs上传<br>2、以上命令执行之后，会在当前目录生成文件”.gitattributes”，内容大概是这样⬇️</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*.psd filter=lfs diff=lfs merge=lfs -text</span><br></pre></td></tr></table></figure>
-<p>以后再次上传psd类型的大文件，系统会自动使用lfs上传</p>
-<p><img src="https://pet-liaison-station.oss-cn-shanghai.aliyuncs.com/markdown/github%E4%B8%8A%E4%BC%A0%E5%A4%A7%E6%96%87%E4%BB%B6%E5%A4%A7%E4%BA%8E100MB_001.png" alt></p>
-
+            <p>
+              使用github作为仓库的时候面向开发者还好，几乎代码都是属于细小零碎文件，但是如果面向大部分文件都是 .mp3、.psd 这类的就要谨慎了，因为这类文件很轻松就超过100MB，然而在github上传协议中，超过100MB的文件需要使用扩展来处理，而不是可以直接上传的。
+2019-06-24 更新G
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/21/Github上传大文件 大于100MB/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1354,23 +1276,21 @@
       
         
           
-            <h3 id="CentOS-安装-L2TP"><a href="#CentOS-安装-L2TP" class="headerlink" title="CentOS 安装 L2TP"></a>CentOS 安装 L2TP</h3><h4 id="尝试过的安装方法："><a href="#尝试过的安装方法：" class="headerlink" title="尝试过的安装方法："></a>尝试过的安装方法：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/hwdsl2/setup-ipsec-vpn</span><br><span class="line">https://www.cnblogs.com/sfissw/articles/7085678.html</span><br></pre></td></tr></table></figure>
-<h4 id="出现的问题"><a href="#出现的问题" class="headerlink" title="出现的问题"></a>出现的问题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">状态均正常，但始终是无响应无法连接。</span><br></pre></td></tr></table></figure>
-<h4 id="总结结论："><a href="#总结结论：" class="headerlink" title="总结结论："></a>总结结论：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">电脑端（电信企业宽带）无法连接，尝试过win7、macOS、iPhone(连接WiFi)</span><br><span class="line">手机端（联通4G）可以正常连接</span><br></pre></td></tr></table></figure>
-<h4 id="以上问题的发现是在这个Issues"><a href="#以上问题的发现是在这个Issues" class="headerlink" title="以上问题的发现是在这个Issues"></a>以上问题的发现是在这个Issues</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/hwdsl2/setup-ipsec-vpn/issues/244</span><br></pre></td></tr></table></figure>
-<h4 id="L2TP到此为止，还是去试试ssr吧！"><a href="#L2TP到此为止，还是去试试ssr吧！" class="headerlink" title="L2TP到此为止，还是去试试ssr吧！"></a>L2TP到此为止，还是去试试ssr吧！</h4><hr>
-<h3 id="CentOS-安装-SSR"><a href="#CentOS-安装-SSR" class="headerlink" title="CentOS 安装 SSR"></a>CentOS 安装 SSR</h3><p>安装、配置、连接 一切顺利</p>
-<p>但是ssr的全局没办法让数据库连接工具走代理，macOS上无问题，win上出现了问题 navicat、sqlyog 都试过了没办法走ssr代理访问数据库，ssr的方式也到此为止了。</p>
-<hr>
-<h3 id="CentOS-安装-OpenVPN"><a href="#CentOS-安装-OpenVPN" class="headerlink" title="CentOS 安装 OpenVPN"></a>CentOS 安装 OpenVPN</h3><p>想着自己的脑子还可以，就按照教程一步一步的来</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">（基础）https://www.jianshu.com/p/4bbf946222d5</span><br><span class="line">（补充）https://www.jianshu.com/p/0ed2a7e8258d</span><br></pre></td></tr></table></figure>
-<p>可是没想到败给了自己，不知道是教程的问题，还是自己配置有问题，始终无法访问，启动了openvpn之后也看不到1194端口的监听</p>
-<h4 id="最后依赖于轮子了"><a href="#最后依赖于轮子了" class="headerlink" title="最后依赖于轮子了"></a>最后依赖于轮子了</h4><p>⬇ 真的好用，一键配置，访问正常！</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/Nyr/openvpn-install</span><br></pre></td></tr></table></figure>
-<h5 id="添加多个用户"><a href="#添加多个用户" class="headerlink" title="添加多个用户"></a>添加多个用户</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Run the script and follow the assistant:</span><br><span class="line"></span><br><span class="line">wget https://git.io/vpn -O openvpn-install.sh &amp;&amp; bash openvpn-install.sh</span><br><span class="line"></span><br><span class="line">Once it ends, you can run it again to add more users, remove some of them or even completely uninstall OpenVPN.</span><br><span class="line"></span><br><span class="line">⬆️翻译：</span><br><span class="line">因为openvpn每一个配置文件允许一个用户访问，如果想要新增一个用户，那么就再执行一下这个命令即可。</span><br></pre></td></tr></table></figure>
-<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">macOS ：https://tunnelblick.net/index.html</span><br><span class="line">windows：https://openvpn.net/community-downloads/</span><br></pre></td></tr></table></figure>
-
+            <p>
+              CentOS 安装 L2TP尝试过的安装方法：https://github.com/hwdsl2/setup-ipsec-vpnhttps://www.cnblogs.com/sfissw/articles/7085678.html
+出现的问题状态均正常，但始终是无响应无法连接。
+总结结论：电脑端（
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/07/CentOS安装VPN/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1511,25 +1431,20 @@
       
         
           
-            <p><em>需要解决的问题</em><br>在遇到需要修改线上数据的时候，有两种方式生成sql，第一种就是根据提供的需求来手动写SQL，审查，然后在测试环境跑一边确认无误，可以直接扔给运维去执行。<br>第二种方法就是直接在图形化工具上修改，然后提取修改的SQL，这样提取的只要核对一遍数据的修改是否正确即可扔给运维执行。</p>
-<p>很明显第二种可以很方便、很准确的提取出所需要的SQL。</p>
-<h3 id="如何解决的简述"><a href="#如何解决的简述" class="headerlink" title="如何解决的简述"></a>如何解决的简述</h3><p>DataGrip就是可以按照上述第二种方式来给出所需要SQL的一个工具。</p>
-<h3 id="如何解决的详细描述"><a href="#如何解决的详细描述" class="headerlink" title="如何解决的详细描述"></a>如何解决的详细描述</h3><p><strong>1 修改需要的数据</strong></p>
-<blockquote>
-<p>首选查询出，需要修改的数据，然后直接在table上修改，双击即可编辑，编辑过后的数据有蓝色背景标识。<br><img src="http://wx1.sinaimg.cn/large/6c251c0dly1g0vg68yd72j20cu06aweo.jpg" alt></p>
-</blockquote>
-<p><strong>2 更改复制模式</strong></p>
-<blockquote>
-<p>默认复制模式，只是复制当前数据，在Database Console 窗口的右侧，可以看到修改复制模式的位置“红色标记”，选择SQL Updates 即可。<br><img src="http://wx4.sinaimg.cn/large/6c251c0dly1g0vg68doboj215s0emwh3.jpg" alt></p>
-</blockquote>
-<p><strong>3 复制一定要两列起</strong></p>
-<blockquote>
-<p>单独一个字段的复制，系统会默认复制当前字段的值，只有两个字段一起复制，才可以按照“复制模式”来复制出需要的数据，比如这次我修改的是字段“auto_repayment”但复制的是还需要增加随便一列，我选择的是“all_rate”<br><img src="http://wx2.sinaimg.cn/large/6c251c0dly1g0vg67xl2vj20qa08e0uf.jpg" alt></p>
-</blockquote>
-<p><strong>结果</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UPDATE p2p.p2p_p2pproduct SET all_rate = 14.4, auto_repayment = 2 WHERE id = 1369;</span><br><span class="line">UPDATE p2p.p2p_p2pproduct SET all_rate = 14.4, auto_repayment = 3 WHERE id = 1380;</span><br></pre></td></tr></table></figure>
-
+            <p>
+              需要解决的问题在遇到需要修改线上数据的时候，有两种方式生成sql，第一种就是根据提供的需求来手动写SQL，审查，然后在测试环境跑一边确认无误，可以直接扔给运维去执行。第二种方法就是直接在图形化工具上修改，然后提取修改的SQL，这样提取的只要核对一遍数据的修改是否正确即可扔给运维执行。
+很明显第二种可
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/08/DataGrip如何提取SQL-update-语句/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1670,28 +1585,31 @@
       
         
           
-            <p><strong>pyenv命令</strong>  </p>
-<blockquote>
-<p>参考:<a href="http://einverne.github.io/post/2017/04/pyenv.html" target="_blank" rel="noopener">http://einverne.github.io/post/2017/04/pyenv.html</a></p>
-</blockquote>
-<p><strong>查看当前python版本</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyenv versions</span><br></pre></td></tr></table></figure>
-<p><strong>切换python版本</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyenv global 2.7.3</span><br></pre></td></tr></table></figure>
-<p><strong>pyenv-virtualenv</strong></p>
-<blockquote>
-<p>创建虚拟环境</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv virtualenv 2.7.10 env-2.7.10</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>若不指定 python 版本，会默认使用当前环境 python 版本。如果指定 Python 版本，则一定要是已经安装过的版本，否则会出错。环境的真实目录位于 ~/.pyenv/versions 下</p>
-</blockquote>
-<p><strong>如何安装虚拟环境插件</strong></p>
-<blockquote>
-<p>连接：<a href="https://www.jianshu.com/p/60f361822a7e" target="_blank" rel="noopener">https://www.jianshu.com/p/60f361822a7e</a></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv</span><br></pre></td></tr></table></figure>
+            <p>
+              pyenv命令  
+
+参考:http://einverne.github.io/post/2017/04/pyenv.html
+
+查看当前python版本
+pyenv versions
+切换python版本
+pyenv global 2.7.3
+pyenv-virtualenv
+
+创建虚拟环境
+
+$
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/08/pyenv常用命令/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1832,52 +1750,22 @@
       
         
           
-            <p>参考链接：<br><a href="https://www.cnhzz.com/pyenv_virtualenv_virtaulenvwrapper/" target="_blank" rel="noopener">https://www.cnhzz.com/pyenv_virtualenv_virtaulenvwrapper/</a><br><a href="https://gist.github.com/miminus/671de665a440ef12cafc31e7a97acc89" target="_blank" rel="noopener">https://gist.github.com/miminus/671de665a440ef12cafc31e7a97acc89</a>  </p>
-<p><strong>添加.zshrc 代码</strong></p>
-<blockquote>
-<p>vi ~/.zshrc <em>编辑文件</em></p>
-</blockquote>
-<blockquote>
-<p>if which pyenv &gt; /dev/null; then eval “$(pyenv init -)”; fi<br>export PYENV_ROOT=/usr/local/var/pyenv</p>
-</blockquote>
-<blockquote>
-<p>source ~/.zshrc <em>刷新配置文件</em></p>
-</blockquote>
-<p><strong>安装python3版本</strong></p>
-<blockquote>
-<p>pyenv install 3.4.0</p>
-</blockquote>
-<p><strong>报错</strong></p>
-<blockquote>
-<p>zipimport.ZipImportError: can’t decompress data; zlib not available</p>
-</blockquote>
-<blockquote>
-<p>尝试解决办法 安装 zlib<br>解决方法：xcode-select –install，然后安装命令行工具（即使你安装了xcode）<br>参考连接：<a href="https://segmentfault.com/a/1190000004179057" target="_blank" rel="noopener">https://segmentfault.com/a/1190000004179057</a></p>
-</blockquote>
-<p><strong>搞不定了，还是下载安装包吧</strong><br><em>下载链接（XZ compressed source tarball）<br><a href="https://www.python.org/downloads/release/python-349/" target="_blank" rel="noopener">https://www.python.org/downloads/release/python-349/</a></em></p>
-<blockquote>
-<p>tar -zxf Python-3.4.9.tar.xz  <em>解压</em><br>cd Python-3.4.9  <em>进入文件夹</em>  </p>
-</blockquote>
-<p>安装</p>
-<blockquote>
-<p>./configure<br>make<br>make install </p>
-</blockquote>
-<p>查看python3安装位置  </p>
-<blockquote>
-<p>MacBook:Python-3.4.9 shen$ which python3<br>/usr/local/bin/python3</p>
-</blockquote>
-<p><strong>依旧报错</strong></p>
-<blockquote>
-<p>zipimport.ZipImportError: can’t decompress data; zlib not available<br>make: *** [install] Error 1  </p>
-</blockquote>
-<p><em>按照这个解决尝试</em>  </p>
-<blockquote>
-<p>连接：<br><a href="https://github.com/pyenv/pyenv/wiki/Common-build-problems#build-failed-error-the-python-zlib-extension-was-not-compiled-missing-the-zlib" target="_blank" rel="noopener">https://github.com/pyenv/pyenv/wiki/Common-build-problems#build-failed-error-the-python-zlib-extension-was-not-compiled-missing-the-zlib</a></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">MacBook:~ shen$ export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig/ &gt;&gt; ~/.p</span><br><span class="line">.p2/             .putty/          .pyenv/          .python_history  </span><br><span class="line">MacBook:~ shen$ echo &apos;export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig/&apos; &gt;&gt; ~/.bash_profile</span><br><span class="line">MacBook:~ shen$ pyenv install 3.5.2</span><br><span class="line">python-build: use openssl from homebrew</span><br><span class="line">python-build: use readline from homebrew</span><br><span class="line">Installing Python-3.5.2...</span><br><span class="line">patching file Lib/venv/scripts/posix/activate.fish</span><br><span class="line">python-build: use readline from homebrew</span><br></pre></td></tr></table></figure>
-<p><strong>搞定了 解决了 太棒了</strong>  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">MacBook:~ shen$ xcode-select --install</span><br><span class="line">    xcode-select: error: command line tools are already   installed, use &quot;Software Update&quot; to install update </span><br><span class="line">MacBook:~ shen$ Software Update  </span><br><span class="line">-bash: Software: command not found  </span><br><span class="line">MacBook:~ shen$ sudo installer -pkg   /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /  </span><br><span class="line">installer: Package name is macOS_SDK_headers_for_macOS_10.14</span><br><span class="line">installer: Installing at base path    </span><br><span class="line">installer: The install was successful.  </span><br><span class="line">MacBook:~ shen$   </span><br><span class="line">MacBook:~ shen$ pyenv install 3.5.2   </span><br><span class="line">python-build: use openssl from homebrew  </span><br><span class="line">python-build: use readline from homebrew  </span><br><span class="line">Installing Python-3.5.2...  </span><br><span class="line">patching file Lib/venv/scripts/posix/activate.fish  </span><br><span class="line">python-build: use readline from homebrew  </span><br><span class="line">Installed Python-3.5.2 to /Users/shen/.pyenv/versions/3.5.2</span><br></pre></td></tr></table></figure>
+            <p>
+              参考链接：https://www.cnhzz.com/pyenv_virtualenv_virtaulenvwrapper/https://gist.github.com/miminus/671de665a440ef12cafc31e7a97acc89  
+添加.zshrc 代码
+
+vi ~/.zs
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/08/macOS-python-版本共存/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -2030,30 +1918,22 @@
       
         
           
-            <p><strong>Google Cloud 释放外网IP</strong>  </p>
-<p>来自Google Cloud 一年免费版的受益者</p>
-<p>近几日突然发现上推的时候，访问情况不稳，时断时续，而且出现了访问速度急速下降的问题，就比如说在推特看小视频，以前缓冲几乎是秒级别，现在就会卡顿顿的，看的不爽，自然心情也就不好。  </p>
-<p>Google Cloud 比 vultr 好一点的地方是服务器的IP可以单独配置，这样就可以既保留我服务器上的资源也可以同时避免被墙的尴尬。  </p>
-<p><strong>第一步</strong><br>在自己的 Compute Engine 中修改服务器的外网IP为 “空” 或者 “临时” ，目的是为了释放外网IP做准备。  </p>
-<blockquote>
-<p>⬇点击修改按钮，进入修改模式<br><img src="https://pet-liaison-station.oss-cn-shanghai.aliyuncs.com/markdown/Google%20cloud%E9%87%8A%E6%94%BE%E5%A4%96%E7%BD%91IP/003.png" width="80%" height="80%"></p>
-</blockquote>
-<blockquote>
-<p>⬇修改外部IP为“空”或“临时”<br><img src="https://pet-liaison-station.oss-cn-shanghai.aliyuncs.com/markdown/Google%20cloud%E9%87%8A%E6%94%BE%E5%A4%96%E7%BD%91IP/004.png" width="80%" height="80%"></p>
-</blockquote>
-<blockquote>
-<p>⬇记得在底部点击保存按钮，这时外部IP是无占用状态<br><img src="https://pet-liaison-station.oss-cn-shanghai.aliyuncs.com/markdown/Google%20cloud%E9%87%8A%E6%94%BE%E5%A4%96%E7%BD%91IP/006.png" alt="avatar">  </p>
-</blockquote>
-<p><strong>第二步</strong><br>释放外网IP</p>
-<blockquote>
-<p>⬇进入VPC网络<br><img src="https://pet-liaison-station.oss-cn-shanghai.aliyuncs.com/markdown/Google%20cloud%E9%87%8A%E6%94%BE%E5%A4%96%E7%BD%91IP/001.png" alt="avatar">  </p>
-</blockquote>
-<blockquote>
-<p>⬇点击选中需要释放的IP，点击右上角“释放”<br><img src="https://pet-liaison-station.oss-cn-shanghai.aliyuncs.com/markdown/Google%20cloud%E9%87%8A%E6%94%BE%E5%A4%96%E7%BD%91IP/002.png" alt="avatar">  </p>
-</blockquote>
-<p><strong>第三步</strong><br>重新创建IP，回到第一步骤修改的状态，点击外部IP之后有一项是创建外部IP，创建即可。</p>
-
+            <p>
+              Google Cloud 释放外网IP  
+来自Google Cloud 一年免费版的受益者
+近几日突然发现上推的时候，访问情况不稳，时断时续，而且出现了访问速度急速下降的问题，就比如说在推特看小视频，以前缓冲几乎是秒级别，现在就会卡顿顿的，看的不爽，自然心情也就不好。  
+Google Cloud
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/08/Google_Cloud_释放外网IP/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
